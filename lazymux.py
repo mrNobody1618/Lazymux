@@ -5,50 +5,58 @@ import os
 import sys
 from time import sleep as timeout
 from core.lzmcore import *
+from core.persistence import *
+
+
+global BANNER_FONT_STYLE
 
 def main():
-	banner()
-	print "   [01] Information Gathering"
-	print "   [02] Vulnerability Scanner"
-	print "   [03] Stress Testing"
-	print "   [04] Password Attacks"
-	print "   [05] Web Hacking"
-	print "   [06] Exploitation Tools"
-	print "   [07] Sniffing & Spoofing"
-	print "   [08] Other\n"
-	print "   [10] Exit the Lazymux\n"
+	BANNER_FONT_STYLE = loadFont()
+	banner(BANNER_FONT_STYLE)
+	print """
+	   [01] Information Gathering
+	   [02] Vulnerability Scanner
+	   [03] Stress Testing
+	   [04] Password Attacks
+	   [05] Web Hacking
+	   [06] Exploitation Tools
+	   [07] Sniffing & Spoofing
+	   [08] Other
+	   [09] Banner Style
+	   [10] Exit the Lazymux\n"""
 	lazymux = raw_input("lzmx > ")
-	
+
 	if lazymux == "1" or lazymux == "01":
-		print "\n    [01] Nmap"
-		print "    [02] Red Hawk"
-		print "    [03] D-Tect"
-		print "    [04] sqlmap"
-		print "    [05] Infoga"
-		print "    [06] ReconDog"
-		print "    [07] AndroZenmap"
-		print "    [08] sqlmate"
-		print "    [09] AstraNmap"
-		print "    [10] WTF"
-		print "    [11] Easymap"
-		print "    [12] BlackBox"
-		print "    [13] XD3v"
-		print "    [14] Crips"
-		print "    [15] SIR"
-		print "    [16] EvilURL"
-		print "    [17] Striker"
-		print "    [18] Xshell"
-		print "    [19] OWScan"
-		print "    [20] OSIF"
-		print "    [21] Devploit"
-		print "    [22] Namechk"
-		print "    [23] AUXILE"
-		print "    [24] inther"
-		print "    [25] GINF"
-		print "    [26] GPS Tracking\n"
-		print "    [00] Back to main menu\n"
+		print """
+		[01] Nmap
+		[02] Red Hawk
+		[03] D-Tect
+		[04] sqlmap
+		[05] Infoga
+		[06] ReconDog
+		[07] AndroZenmap
+		[08] sqlmate
+		[09] AstraNmap
+		[10] WTF
+		[11] Easymap
+		[12] BlackBox
+		[13] XD3v
+		[14] Crips
+		[15] SIR
+		[16] EvilURL
+		[17] Striker
+		[18] Xshell
+		[19] OWScan
+		[20] OSIF
+		[21] Devploit
+		[22] Namechk
+		[23] AUXILE
+		[24] inther
+		[25] GINF
+		[26] GPS Tracking
+		[00] Back to main menu\n"""
 		infogathering = raw_input("lzmx > ")
-		
+
 		if infogathering == "01" or infogathering == "1":
 			nmap()
 		elif infogathering == "02" or infogathering == "2":
@@ -107,7 +115,7 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
 	elif lazymux == "2" or lazymux == "02":
 		print "\n    [01] Nmap"
 		print "    [02] AndroZenmap"
@@ -134,7 +142,7 @@ def main():
 		print "    [23] OWScan\n"
 		print "    [00] Back to main menu\n"
 		vulnscan = raw_input("lzmx > ")
-		
+
 		if vulnscan == "01" or vulnscan == "1":
 			nmap()
 		elif vulnscan == "02" or vulnscan == "2":
@@ -187,7 +195,7 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
 	elif lazymux == "3" or lazymux == "03":
 		print "\n    [01] Torshammer"
 		print "    [02] Slowloris"
@@ -201,7 +209,7 @@ def main():
 		print "    [10] santet-online\n"
 		print "    [00] Back to main menu\n"
 		stresstest = raw_input("lzmx > ")
-		
+
 		if stresstest == "01" or stresstest == "1":
 			torshammer()
 		elif stresstest == "02" or stresstest == "2":
@@ -228,7 +236,7 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
 	elif lazymux == "4" or lazymux == "04":
 		print "\n    [01] Hydra"
 		print "    [02] FMBrute"
@@ -252,7 +260,7 @@ def main():
 		print "    [20] Hashcat\n"
 		print "    [00] Back to main menu\n"
 		passtak = raw_input("lzmx > ")
-		
+
 		if passtak == "01" or passtak == "1":
 			hydra()
 		elif passtak == "02" or passtak == "2":
@@ -299,7 +307,7 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
 	elif lazymux == "5" or lazymux == "05":
 		print "\n    [01] sqlmap"
 		print "    [02] Webdav"
@@ -327,7 +335,7 @@ def main():
 		print "    [24] Atlas\n"
 		print "    [00] Back to main menu\n"
 		webhack = raw_input("lzmx > ")
-		
+
 		if webhack == "01" or webhack == "1":
 			sqlmap()
 		elif webhack == "02" or webhack == "2":
@@ -382,14 +390,14 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
 	elif lazymux == "6" or lazymux == "06":
 		print "\n    [01] Metasploit"
 		print "    [02] commix"
 		print "    [03] sqlmap"
 		print "    [04] Brutal"
 		print "    [05] A-Rat"
-		print "    [06] WPSploit"  
+		print "    [06] WPSploit"
 		print "    [07] Websploit"
 		print "    [08] Routersploit"
 		print "    [09] BlackBox"
@@ -399,7 +407,7 @@ def main():
 		print "    [13] Binary Exploitation\n"
 		print "    [00] Back to main menu\n"
 		exploitool = raw_input("lzmx > ")
-		
+
 		if exploitool == "01" or exploitool == "1":
 			metasploit()
 		elif exploitool == "02" or exploitool == "2":
@@ -432,7 +440,7 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
 	elif lazymux == "7" or lazymux == "07":
 		print "\n    [01] KnockMail"
 		print "    [02] Spammer-Grab"
@@ -444,7 +452,7 @@ def main():
 		print "    [08] LiteOTP\n"
 		print "    [00] Back to main menu\n"
 		sspoof = raw_input("lzmx > ")
-		
+
 		if sspoof == "01" or sspoof == "1":
 			knockmail()
 		elif sspoof == "02" or sspoof == "2":
@@ -467,7 +475,7 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
 	elif lazymux == "8" or lazymux == "08":
 		print "\n    [01] SpiderBot"
 		print "    [02] Ngrok"
@@ -487,7 +495,7 @@ def main():
 		print "    [16] AutoVisitor\n"
 		print "    [00] Back to main menu\n"
 		moretool = raw_input("lzmx > ")
-		
+
 		if moretool == "01" or moretool == "1":
 			spiderbot()
 		elif moretool == "02" or moretool == "2":
@@ -526,10 +534,99 @@ def main():
 			print "\nERROR: Wrong Input"
 			timeout(2)
 			restart_program()
-	
+
+	elif lazymux == "9" or lazymux == "09":
+		print """
+		[01] Digital
+		[02] Bubblehead
+		[03] Bubble
+		[04] DotMatrix
+		[05] Alligator
+		[06] Letters
+		[07] Isometric-1
+		[08] Doh
+		[09] Banner 3-D
+		[10] Alphabet
+		[11] 5-line-oblique
+		[12] 3 X 5
+		[13] 3-D
+		[14] Slant
+		[15] Default\n
+		[00] Back to main menu\n"""
+		font = raw_input("lzmx > ")
+# Switch case ka function banana padega jis se ek global variable ki value set hogi
+# WOh global variable parameter se banner function call karna
+		# global BANNER_FONT_STYLE
+		if font == "01" or font == "1":
+			BANNER_FONT_STYLE = 'digital'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "02" or font == "2":
+			BANNER_FONT_STYLE = 'bulbhead'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "03" or font == "3":
+			BANNER_FONT_STYLE = 'bubble'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "04" or font == "4":
+			BANNER_FONT_STYLE = 'dotmatrix'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "05" or font == "5":
+			BANNER_FONT_STYLE = 'alligator'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "06" or font == "6":
+			BANNER_FONT_STYLE = 'letters'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "07" or font == "7":
+			BANNER_FONT_STYLE = 'isometric1'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "08" or font == "8":
+			BANNER_FONT_STYLE = 'doh'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "09" or font == "9":
+			BANNER_FONT_STYLE = 'banner3-D'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "10":
+			BANNER_FONT_STYLE = 'alphabet'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "11":
+			BANNER_FONT_STYLE = '5lineoblique'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "12":
+			BANNER_FONT_STYLE = '3x5'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "13":
+			BANNER_FONT_STYLE = '3-d'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "14":
+			BANNER_FONT_STYLE = 'slant'
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "15":
+			BANNER_FONT_STYLE = ''
+			storeFont(BANNER_FONT_STYLE)
+			backtomenu_option()
+		elif font == "00" or font == "0":
+			restart_program()
+		else:
+			print "\nERROR: Wrong Input"
+			timeout(2)
+			restart_program()
+
 	elif lazymux == "10":
 		sys.exit()
-	
+
 	else:
 		print "\nERROR: Wrong Input"
 		timeout(2)
@@ -537,3 +634,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+

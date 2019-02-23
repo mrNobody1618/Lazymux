@@ -3,16 +3,10 @@
 import os
 import sys
 import time
+import pyfiglet
 
-lazymux_banner = """
-.-.                                           
-: :                                           
-: :    .--.  .---. .-..-.,-.,-.,-..-..-..-.,-.
-: :__ ' .; ; `-'_.': :; :: ,. ,. :: :; :`.  .'
-:___.'`.__,_;`.___;`._. ;:_;:_;:_;`.__.':_,._;
-                    .-. :                     
-                    `._.'                     
-"""
+
+
 backtomenu_banner = """
   [99] Back to main menu
   [00] Exit the Lazymux
@@ -25,7 +19,7 @@ def restart_program():
 def backtomenu_option():
 	print backtomenu_banner
 	backtomenu = raw_input("lzmx > ")
-	
+
 	if backtomenu == "99":
 		restart_program()
 	elif backtomenu == "00":
@@ -35,8 +29,15 @@ def backtomenu_option():
 		time.sleep(2)
 		restart_program()
 
-def banner():
-	print lazymux_banner
+
+def banner(fontForBanner=""):
+    if fontForBanner:
+        lazymux_banner = pyfiglet.figlet_format("Lazymux", font=fontForBanner)
+        print lazymux_banner
+    else:
+        lazymux_banner = pyfiglet.figlet_format("Lazymux", font='standard')
+        print lazymux_banner
+
 
 def nmap():
 	print '\n###### Installing Nmap'
@@ -1053,3 +1054,4 @@ def liteotp():
 	print "###### Done"
 	print "###### Type 'lite' to start."
 	backtomenu_option()
+
